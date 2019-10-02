@@ -1,0 +1,43 @@
+<!-- I keep trying to use the library ngx-scroll but i failed 
+    <div 
+    infiniteScroll
+    [infiniteScrollDistance]="2";
+    [infiniteScrollThrottle]="1000";
+    (scrolled)="onScroll">
+</div> -->
+<!--using virtual-scroll directive-->
+<cdk-virtual-scroll-viewport class="container" itemSize=150 style="height: 500px;">
+
+    <!-- 50% Width + Margin auto to center it -->
+    <!-- Using col-sm-6 here to make it 50% on small devices and above, and will be 100% width on all small devices by default -->
+    <div *cdkVirtualFor="let u of newUsers" class="col-sm-8 col-md-6 mx-auto mb-3">
+        <div class="card shadow border-0">
+            <div class="card-body">
+                <!-- You must add row class above every (col-) -->
+                <div class="row">
+                    <!-- Use (col-3) without to make it 3 coloumns on all screens -->
+                    <div class="col-4 col-sm-3 d-flex align-items-center justify-content-center">
+                        <!-- PUT IMAGE HERE -->
+                        <img src="../../../assets/images/three.jpg" alt="Image" 
+                        class="img-fluid rounded-circle">
+                        
+                    </div>
+                    <div class="col-5 col-sm-7">
+                        <!-- PROFILE BODY -->
+                        <p class="name text-secondary">Dudung Smokmati</p>
+                        <p class="title font-italic font-weight-bold text-success">Eye specialist</p>
+                        <p class="address text-muted">
+                           <i class="fa fa-map-marker mr-2" aria-hidden="true"></i> 5th Settlement</p>
+                    </div>
+                    <div class="col-3 col-sm-2 text-right pt-1">
+                        <p class="text-muted rate font-weight-bold mb-0">
+                            <i class="fa fa-star text-warning" aria-hidden="true"></i>
+                            4.49
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</cdk-virtual-scroll-viewport>
